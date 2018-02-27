@@ -1,0 +1,13 @@
+#Исключим директорию __pycache__ :
+__pycache__/
+#Исключим сам файл .gitignore:
+.gitignore
+
+*.pyc
+__pycache__
+*$py.class
+
+*.pyo
+*~
+.idea/
+venv/
