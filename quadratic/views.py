@@ -1,3 +1,5 @@
+import math
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -15,6 +17,22 @@ def rez_nul(request):
     print(request.GET['a'])    
     print(request.GET['b'])
     print(request.GET['c'])
+    a = int(request.GET['a'])
+    b = int(request.GET['b'])
+    c = int(request.GET['c'])
+    D = b*b - 4*a*c;
+    print("D",D)
+    if D > 0:
+        x1 = (-b + math.sqrt(D))/(2*a)
+        x2 = (-b - math.sqrt(D))/(2*a)
+        print("x1 = ", x1)
+        print("x2 = ", x2)
+    elif D == 0:
+        pass
+    elif D < 0:        
+        pass
+
+
     #print(dir(request.GET))
     return HttpResponse("This is rez_nul views!!")
 
