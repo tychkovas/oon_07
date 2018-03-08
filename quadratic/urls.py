@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from . import views
 
-app_name = 'quadratic'
+#app_name = 'quadratic'
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	url(r'^results/$', views.rez_nul, name='rez_nul'),

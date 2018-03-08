@@ -2,12 +2,14 @@ import math
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import QueryDict 
 
 # Create your views here.
 
 def index(request):
     return render(request, "quadratic/index.html")
 
+#/quadratic/results/?a=-1&b=2&c=35
 def rez_nul(request):
     print(request)
     print(request.path)
@@ -27,12 +29,20 @@ def rez_nul(request):
         x2 = (-b - math.sqrt(D))/(2*a)
         print("x1 = ", x1)
         print("x2 = ", x2)
+        
+        question = request.GET.copy()
+
+        print(question)        
+        question["D"] = D
+        question["x1"] = x1
+        question["x2"] = x2
+        print(question)
+        return render(request, 'quadratic/result.html', {'question': question})
+
     elif D == 0:
         pass
     elif D < 0:        
-        pass
-
-
+        pass    
     #print(dir(request.GET))
     return HttpResponse("This is rez_nul views!!")
 
